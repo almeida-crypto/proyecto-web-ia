@@ -284,6 +284,33 @@ pestanas.forEach((pestana) => {
   });
 });
 
+// ===== EXTRA (reto): modo oscuro / claro =====
+function aplicarTema(tema) {
+  document.documentElement.setAttribute("data-theme", tema);
+  btnTema.textContent = tema === "dark" ? "☀️ Modo claro" : "🌙 Modo oscuro";
+}
+
+btnTema.addEventListener("click", () => {
+  const nuevoTema = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  aplicarTema(nuevoTema);
+  try {
+    localStorage.setItem(CLAVE_TEMA, nuevoTema);
+  } catch {
+    // Si localStorage no está disponible, el tema solo dura esta visita
+  }
+});
+
+function temaInicial() {
+  try {
+    const guardado = localStorage.getItem(CLAVE_TEMA);
+    if (guardado) return guardado;
+  } catch {
+    // ignoramos y usamos la preferencia del sistema
+  }
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
 // ===== Inicio =====
+aplicarTema(temaInicial());
 contadorFav.textContent = estado.favoritos.length;
 cargarPersonajes();
