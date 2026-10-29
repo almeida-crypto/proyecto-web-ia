@@ -9,7 +9,7 @@ Aplicación web que consulta en tiempo real la [Rick and Morty API](https://rick
 
 | Nombre | Usuario de GitHub | Aportes |
 |---|---|---|
-| _(escribe tu nombre)_ | [almeida-crypto](https://github.com/almeida-crypto) | Todo el proyecto: HTML, CSS, JavaScript, documentación, Issues y Pull Request |
+| _Victor-Almeida_ | [almeida-crypto](https://github.com/almeida-crypto) | Todo el proyecto: HTML, CSS, JavaScript, documentación, Issues y Pull Request |
 
 ## Descripción
 
@@ -72,7 +72,7 @@ Los datos de cada personaje se insertan con `textContent` clonando una etiqueta 
 
 ### Reflexión sobre el uso de IA
 
-_Escriban aquí, con sus palabras, qué aprendieron. Ideas: la IA acelera la escritura del código, pero hay que probarlo porque no siempre conoce el comportamiento real de la API (caso del 404); pedir explicaciones línea por línea nos ayudó a entender `fetch`, `async/await` y `localStorage`; y dividir el trabajo en prompts pequeños dio mejores resultados que pedir todo de una vez._
+_La IA es una herramienta genial, la cual ha evolucionado de una manera impresionante el trabajo de los ingenieros de software, debemos usarlo de una maneras ética y profesional ya que al final se quedará pasa siempre y solo queda adaptarnos a lo nuevo, ya que como dicen, esta carrera es como un tren, si no te actualizas vas desplazándote al vagón más atrás hasta llegar al último y caer del tren._
 
 ## Funcionalidad extra (reto): modo oscuro / claro
 
