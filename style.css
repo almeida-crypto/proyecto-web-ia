@@ -17,6 +17,22 @@
   --info-texto: #17603a;
 }
 
+/* ===== EXTRA (reto): colores del modo oscuro ===== */
+[data-theme="dark"] {
+  --fondo: #101614;
+  --superficie: #1b2421;
+  --texto: #e6efe9;
+  --texto-suave: #9fb1a8;
+  --primario: #3ccf7f;
+  --primario-hover: #5fe09a;
+  --borde: #2c3a35;
+  --sombra: 0 2px 10px rgba(0, 0, 0, 0.5);
+  --error-fondo: #3a1d1b;
+  --error-texto: #ffb4ae;
+  --info-fondo: #183126;
+  --info-texto: #a8e8c3;
+}
+
 * {
   box-sizing: border-box;
 }
