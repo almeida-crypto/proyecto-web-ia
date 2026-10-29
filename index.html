@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorador Rick and Morty</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="encabezado">
+    <div class="encabezado__titulo">
+      <h1>Explorador Rick and Morty</h1>
+      <p>Datos en vivo desde <a href="https://rickandmortyapi.com" target="_blank" rel="noopener">rickandmortyapi.com</a></p>
+    </div>
+    <!-- EXTRA (reto): botón de modo oscuro / claro -->
+    <button id="btnTema" class="btn btn--tema" type="button" aria-label="Cambiar tema">🌙 Modo oscuro</button>
+  </header>
+
+  <main class="contenedor">
+    <!-- Pestañas: todos los personajes o solo favoritos -->
+    <nav class="pestanas" aria-label="Secciones">
+      <button class="pestana activa" data-vista="todos" type="button">Personajes</button>
+      <button class="pestana" data-vista="favoritos" type="button">Favoritos (<span id="contadorFav">0</span>)</button>
+    </nav>
+
+    <!-- Buscador y filtros -->
+    <form id="formBusqueda" class="controles" autocomplete="off">
+      <input id="inputBuscar" type="search" placeholder="Buscar por nombre (ej. Rick, Morty, Summer)..." aria-label="Buscar personaje">
+
+      <select id="filtroEstado" aria-label="Filtrar por estado">
+        <option value="">Estado: todos</option>
+        <option value="alive">Vivo</option>
+        <option value="dead">Muerto</option>
+        <option value="unknown">Desconocido</option>
+      </select>
+
+      <select id="filtroGenero" aria-label="Filtrar por género">
+        <option value="">Género: todos</option>
+        <option value="female">Femenino</option>
+        <option value="male">Masculino</option>
+        <option value="genderless">Sin género</option>
+        <option value="unknown">Desconocido</option>
+      </select>
+
+      <select id="filtroEspecie" aria-label="Filtrar por especie">
+        <option value="">Especie: todas</option>
+        <option value="human">Humano</option>
+        <option value="alien">Alien</option>
+        <option value="humanoid">Humanoide</option>
+        <option value="robot">Robot</option>
+        <option value="animal">Animal</option>
+        <option value="mythological creature">Criatura mitológica</option>
+      </select>
+
+      <select id="ordenar" aria-label="Ordenar resultados">
+        <option value="">Orden: original</option>
+        <option value="az">Nombre A → Z</option>
+        <option value="za">Nombre Z → A</option>
+      </select>
+
+      <button class="btn" type="submit">Buscar</button>
+      <button id="btnLimpiar" class="btn btn--secundario" type="button">Limpiar</button>
+    </form>
+
+    <!-- Mensajes: cargando, sin resultados, errores -->
+    <p id="mensaje" class="mensaje oculto" role="status"></p>
+
+    <p id="resumen" class="resumen"></p>
+
+    <!-- Aquí JavaScript inserta las tarjetas -->
+    <section id="listaPersonajes" class="grid" aria-live="polite"></section>
+
+    <!-- Paginación (solo en la vista de personajes) -->
+    <div id="paginacion" class="paginacion">
+      <button id="btnAnterior" class="btn btn--secundario" type="button">← Anterior</button>
+      <span id="infoPagina">Página 1 de 1</span>
+      <button id="btnSiguiente" class="btn btn--secundario" type="button">Siguiente →</button>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <p>Proyecto Web IA — Tarea 3</p>
+  </footer>
+
+  <!-- Plantilla de tarjeta: script.js la clona por cada personaje -->
+  <template id="plantillaTarjeta">
+    <article class="tarjeta">
+      <img class="tarjeta__img" alt="" loading="lazy">
+      <div class="tarjeta__cuerpo">
+        <div class="tarjeta__cabecera">
+          <h2 class="tarjeta__nombre"></h2>
+          <button class="btn-fav" type="button" aria-label="Agregar a favoritos">☆</button>
+        </div>
+        <p class="tarjeta__estado"><span class="punto"></span><span class="texto-estado"></span></p>
+        <ul class="tarjeta__datos">
+          <li><strong>Género:</strong> <span class="dato-genero"></span></li>
+          <li><strong>Origen:</strong> <span class="dato-origen"></span></li>
+          <li><strong>Ubicación:</strong> <span class="dato-ubicacion"></span></li>
+          <li><strong>Episodios:</strong> <span class="dato-episodios"></span></li>
+        </ul>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
