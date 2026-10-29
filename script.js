@@ -59,6 +59,17 @@ async function cargarPersonajes() {
   try {
     const respuesta = await fetch(`${API_URL}?${parametros}`);
 
+    // La API responde 404 cuando la búsqueda no tiene resultados (no es un fallo de conexión)
+    if (respuesta.status === 404) {
+      estado.personajes = [];
+      estado.totalPaginas = 1;
+      estado.totalResultados = 0;
+      mostrarMensaje("No se encontraron personajes con esa búsqueda o filtros. Intenta con otro nombre.");
+      actualizarPaginacion();
+      resumen.textContent = "";
+      return;
+    }
+
     if (!respuesta.ok) {
       throw new Error(`La API respondió con el código ${respuesta.status}`);
     }
